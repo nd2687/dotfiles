@@ -1,0 +1,69 @@
+# Prompts
+#   30 31 32 33 34 35 36 37
+#   BK RE GR YE BL MA CY WH
+if [ $UID = "0" ]; then
+	PROMPT="%{%}%n@%m%#%{%} "
+else
+	PROMPT="%{%}%n@%m%#%{%} "
+fi
+RPROMPT="%{%}[%~]%{%}"
+
+# ls
+export LS_OPTIONS='--color -F -b -T 0'
+export LS_COLORS='di=01;33:*.gz=01;31:*.tgz=01;31:*.tex=36:*.html=36:*.f=01;35:*.f90=01;35:*.c=01;35'
+
+# Emacs style key binding
+bindkey -e
+
+# History
+setopt hist_expand
+setopt extended_history
+setopt inc_append_history
+setopt hist_ignore_space
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_verify
+function history-all { history -E 1 }
+
+# Completion
+setopt auto_list
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+# cd, pushd setopt auto_cd setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushd_to_home
+
+# Path
+path=(/opt/mysql/server-5.6/bin $path)
+if [ $UID = "0" ]; then
+  path=($path /usr/local/sbin /usr/sbin /sbin)
+fi
+
+
+# Misc
+setopt no_flow_control
+setopt no_beep
+export LD_LIBRARY_PATH=/usr/local/lib
+export LESS="-Rf"
+export exclude_tests=1 # annotate_models
+
+# Aliases
+
+if [ -r ~/.zalias ]; then
+  source ~/.zalias
+fi
+if [ -r ~/.zalias.local ]; then
+  source ~/.zalias.local
+fi
+
+if [ $UID = "0" ]; then
+  export LC_MESSAGES=en_US
+  export LANG=C
+  export LC_ALL=C
+fi
+
+# Hosts
+hosts=( \
+  hg.oiax.jp \
+)
+zstyle '*' hosts $hosts
