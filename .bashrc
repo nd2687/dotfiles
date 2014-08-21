@@ -1,0 +1,170 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    eval "`dircolors -b`"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
+fi
+
+###############################################################
+#  Customize
+###############################################################
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+
+#alias cd='pushd >/dev/null'
+
+#alias cd='. ~/bin/cd.sh'
+#alias p='popd > /dev/null'
+
+#screenの自動実行
+#if [ $SHLVL = '1' ]; then
+#  screen -U -xR -S topenpe
+#fi
+
+#ヒストリの共有
+function share_history {  # 以下の内容を関数として定義
+history -a  # .bash_historyに前回コマンドを1行追記
+history -c  # 端末ローカルの履歴を一旦消去
+history -r  # .bash_historyから履歴を読み込み直す
+}
+
+PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
+shopt -u histappend   # .bash_history追記モードは不要なのでOFFに
+export HISTSIZE=9999  # 履歴のMAX保存数を指定
+
+export LANG=ja_JP.UTF-8
+#export LC_MESSAGES=en_US.UTF-8
+#export VTE_CJK_WIDTH=wide # East Asian ambiguous problem
+export VTE_CJK_WIDTH=wide
+#export VTE_BACKEND=pango # East Asian ambigious problem
+
+#export TERM=xterm-color
+
+#disable C-s on bash
+stty stop undef
+
+#set vi mode
+set -o vi
+
+###  Git  ###
+export GIT_PS1_SHOWDIRTYSTATE=1
+
+#directory-completion with tail-slash
+set mark-directories on
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#
+# プロンプト
+#
+if [ "$color_prompt" = yes ]; then
+if [ -f $BASH_COMPLETION_DIR/git ]; then
+  # Gitのブランチ名を表示
+  #export PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
+  #debian_chrootが効かない？ために無着色状態になっていたので削除
+  export PS1='\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
+else
+  #export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
+  #同上
+  #export PS1='\u@\h:\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
+  export PS1='\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+fi
+else
+	export PS1='\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \n\[\033[01;34m\]\$\[\033[00m\] '
+fi
+
+unset color_prompt force_color_prompt
+
+export PATH=${PATH}:~/android/android-sdk-linux/tools:~/android/android-sdk-linux/platform-tools
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export LANG=ja_JP.UTF-8
+export LC_ALL=en_US.UTF-8
+function cdls() {
+      # cdがaliasでループするので\をつける
+          \cd $1;
+              ls;
+}
+alias cd=cdls
+alias javac='javac -J-Dfile.encoding=UTF8'
+alias java='java -Dfile.encoding=UTF8'
+alias ctags="`brew --prefix`/bin/ctags"
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
