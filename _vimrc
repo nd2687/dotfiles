@@ -8,6 +8,7 @@ endif
 
     " ここにインストールしたいプラグインのリストを書く
  NeoBundle 'Shougo/unite.vim'
+ NeoBundle 'Shougo/neomru'
  NeoBundle 'h1mesuke/unite-outline'
  NeoBundle 'Align'
  "NeoBundle 'neocomplcache'
