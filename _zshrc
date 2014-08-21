@@ -1,12 +1,13 @@
+
 # Prompts
 #   30 31 32 33 34 35 36 37
 #   BK RE GR YE BL MA CY WH
 if [ $UID = "0" ]; then
-	PROMPT="%{%}%n@%m%#%{%} "
+	PROMPT="%{[01;31m%}%n@%m%#%{[m%} "
 else
-	PROMPT="%{%}%n@%m%#%{%} "
+	PROMPT="%{[01;36m%}%n@%m%#%{[m%} "
 fi
-RPROMPT="%{%}[%~]%{%}"
+RPROMPT="%{[36m%}[%~]%{[m%}"
 
 # ls
 export LS_OPTIONS='--color -F -b -T 0'
@@ -34,7 +35,7 @@ setopt pushd_ignore_dups
 setopt pushd_to_home
 
 # Path
-path=(/opt/mysql/server-5.6/bin $path)
+path=(/opt/ruby/bin $path)
 if [ $UID = "0" ]; then
   path=($path /usr/local/sbin /usr/sbin /sbin)
 fi
@@ -67,3 +68,4 @@ hosts=( \
   hg.oiax.jp \
 )
 zstyle '*' hosts $hosts
+
