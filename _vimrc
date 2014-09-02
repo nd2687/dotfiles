@@ -8,11 +8,10 @@ endif
 
     " ここにインストールしたいプラグインのリストを書く
  NeoBundle 'Shougo/unite.vim'
- NeoBundle 'Shougo/neomru'
+ NeoBundle 'Shougo/neomru.vim'
  NeoBundle 'h1mesuke/unite-outline'
- NeoBundle 'Align'
- NeoBundle 'neocomplcache'
- NeoBundle 'The-NERD-tree'
+ NeoBundle 'Shougo/neocomplcache.vim'
+ NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'szw/vim-tags'
     " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
