@@ -49,5 +49,3 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 eval "$(rbenv init -)"
-PKG_CONFIG_PATH=/usr/local/Cellar/imagemagick/6.8.7-0/lib/pkgconfig/
-C_INCLUDE_PATH=/usr/local/Cellar/imagemagick/6.8.7-0/include/ImageMagick
