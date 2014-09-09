@@ -6,19 +6,20 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-    " ここにインストールしたいプラグインのリストを書く
+" ここにインストールしたいプラグインのリストを書く
  NeoBundle 'Shougo/unite.vim'
  NeoBundle 'Shougo/neomru.vim'
  NeoBundle 'h1mesuke/unite-outline'
  NeoBundle 'Shougo/neocomplcache.vim'
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'szw/vim-tags'
-    " :
+ NeoBundle 'tpope/vim-endwise'
+" :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
 " vim-tags
 au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
 nnoremap <C-]> g<C-]>
-  
+
 "(no)VimをなるべくVi互換にする
 set nocompatible
 
@@ -97,28 +98,28 @@ set laststatus=2
 "ステータス行の表示内容を設定する
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " ウィンドウ移動
- nnoremap <silent> wh <C-W>h
- nnoremap <silent> wj <C-W>j
- nnoremap <silent> wk <C-W>k
- nnoremap <silent> wl <C-W>l
- 
- " タブ操作
-  nnoremap <silent> tn :<C-u>tabnew<CR>:tabmove<CR>
-  nnoremap <silent> td :<C-u>bdelete<CR>
-  nnoremap <silent> tD :<C-u>tabc<CR>
-  nnoremap <silent> td :<C-u>quit<CR>"
+nnoremap <silent> wh <C-W>h
+nnoremap <silent> wj <C-W>j
+nnoremap <silent> wk <C-W>k
+nnoremap <silent> wl <C-W>l
+
+" タブ操作
+nnoremap <silent> tn :<C-u>tabnew<CR>:tabmove<CR>
+nnoremap <silent> td :<C-u>bdelete<CR>
+nnoremap <silent> tD :<C-u>tabc<CR>
+nnoremap <silent> td :<C-u>quit<CR>"
 
 
-   " タブ移動
-    nnoremap <silent> L :<C-u>tabnext<CR>
-    nnoremap <silent> H :<C-u>tabprevious<CR>
-   
-    "vimを開く、vimを更新
-    nnoremap <silent> g<Space> :<C-u>edit $HOME/.vimrc<CR>
-    nnoremap <silent> ,<Space> :<C-u>source $HOME/.vimrc<CR>"
-   
-    nnoremap <silent>cl :<C-u>NERDTreeClose<CR>
-    nnoremap <silent>mk :<C-u>NERDTree<CR>
+" タブ移動
+nnoremap <silent> L :<C-u>tabnext<CR>
+nnoremap <silent> H :<C-u>tabprevious<CR>
+
+"vimを開く、vimを更新
+nnoremap <silent> g<Space> :<C-u>edit $HOME/.vimrc<CR>
+nnoremap <silent> ,<Space> :<C-u>source $HOME/.vimrc<CR>"
+
+nnoremap <silent>cl :<C-u>NERDTreeClose<CR>
+nnoremap <silent>mk :<C-u>NERDTree<CR>
 
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
@@ -156,41 +157,41 @@ set noswapfile
 execute pathogen#infect()
 
 "" neocomplcache
- "Disable AutoComplPop.
- let g:acp_enableAtStartup = 0
- " Use neocomplcache.
- let g:neocomplcache_enable_at_startup = 1
- " Use smartcase.
- let g:neocomplcache_enable_smart_case = 1
- " Set minimum syntax keyword length.
- let g:neocomplcache_min_syntax_length = 3
- let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+"Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
- " Define dictionary.
- let g:neocomplcache_dictionary_filetype_lists = {
-       \ 'default' : ''
-       \ }
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+      \ 'default' : ''
+      \ }
 
- " Plugin key-mappings.
- inoremap <expr><C-g>     neocomplcache#undo_completion()
- inoremap <expr><C-l>     neocomplcache#complete_common_string()
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
 
- " Recommended key-mappings.
- " <CR>: close popup and save indent.
- inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
- function! s:my_cr_function()
-   return neocomplcache#smart_close_popup() . "\<CR>"
- endfunction
- " <TAB>: completion.
- inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
- " <C-h>, <BS>: close popup and delete backword char.
- inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
- inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
- inoremap <expr><C-y>  neocomplcache#close_popup()
- inoremap <expr><C-e>  neocomplcache#cancel_popup()
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
- set list
- set listchars=trail:-,extends:»,precedes:«,nbsp:%
+set list
+set listchars=trail:-,extends:»,precedes:«,nbsp:%
 
 
 "------------------------------------
