@@ -213,3 +213,5 @@ noremap <C-U><C-U> :Unite buffer file_mru<CR>
 noremap <C-U><C-A> :Unite UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
+
+hi MatchParen ctermbg=1
