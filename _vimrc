@@ -214,4 +214,10 @@ noremap <C-U><C-A> :Unite UniteWithBufferDir -buffer-name=files buffer file_mru 
 " ESCキーを2回押すと終了する
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 
+" 括弧ハイライト調整
 hi MatchParen ctermbg=1
+
+if !exists('loaded_matchit')
+  " matchitを有効化
+  runtime macros/matchit.vim
+endif
