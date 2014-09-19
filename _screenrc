@@ -43,3 +43,5 @@ screen -t vim 0
 screen -t cmd 1
 screen -t server 2
 select 0
+
+setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
