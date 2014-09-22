@@ -14,6 +14,9 @@ endif
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'szw/vim-tags'
  NeoBundle 'tpope/vim-endwise'
+ NeoBundle 'tpope/vim-rails'
+ NeoBundle 'tpope/vim-surround'
+
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
 " vim-tags
