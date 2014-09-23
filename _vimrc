@@ -17,6 +17,18 @@ endif
  NeoBundle 'tpope/vim-rails'
  NeoBundle 'tpope/vim-surround'
 
+ NeoBundle 'mattn/emmet-vim'
+ "NeoBundle 'open-browser.vim'
+ NeoBundle 'mattn/webapi-vim'
+ NeoBundle 'tell-k/vim-browsereload-mac'
+ NeoBundle 'hail2u/vim-css3-syntax'
+ NeoBundle 'othree/html5.vim'
+ NeoBundle 'pangloss/vim-javascript'
+ NeoBundle 'kchmck/vim-coffee-script'
+
+ NeoBundle 'gmarik/Vundle.vim'
+
+
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
 " vim-tags
@@ -231,4 +243,130 @@ augroup MyXML
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+augroup END
+
+" https://gist.github.com/qickstarter/3668558
+"----------------------------------------
+" zencoding
+"----------------------------------------
+" codaのデフォルトと一緒にする
+imap <C-E> <C-Y>,
+let g:user_zen_leader_key = '<C-Y>'
+" 言語別に対応させる
+let g:user_zen_settings = {
+\ 'lang' : 'ja',
+\ 'html' : {
+\ 'filters' : 'html',
+\ 'indentation' : ' '
+\ },
+\ 'css' : {
+\ 'filters' : 'fc',
+\ },
+\}
+ 
+"----------------------------------------
+" open-browsere
+"----------------------------------------
+" カーソル下のURLをブラウザで開く
+nmap <Leader>o <Plug>(openbrowser-open)
+vmap <Leader>o <Plug>(openbrowser-open)
+" ググる
+nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
+ 
+ 
+"----------------------------------------
+" vim-browsereload-mac
+"----------------------------------------
+" リロード後に戻ってくるアプリ 変更してください
+let g:returnApp = "iTerm"
+nmap <Space>bc :ChromeReloadStart<CR>
+nmap <Space>bC :ChromeReloadStop<CR>
+nmap <Space>bf :FirefoxReloadStart<CR>
+nmap <Space>bF :FirefoxReloadStop<CR>
+nmap <Space>bs :SafariReloadStart<CR>
+nmap <Space>bS :SafariReloadStop<CR>
+nmap <Space>bo :OperaReloadStart<CR>
+nmap <Space>bO :OperaReloadStop<CR>
+nmap <Space>ba :AllBrowserReloadStart<CR>
+nmap <Space>bA :AllBrowserReloadStop<CR>
+
+" HTML 5 tags
+syn keyword htmlTagName contained article aside audio bb canvas command
+syn keyword htmlTagName contained datalist details dialog embed figure
+syn keyword htmlTagName contained header hgroup keygen mark meter nav output
+syn keyword htmlTagName contained progress time ruby rt rp section time
+syn keyword htmlTagName contained source figcaption
+syn keyword htmlArg contained autofocus autocomplete placeholder min max
+syn keyword htmlArg contained contenteditable contextmenu draggable hidden
+syn keyword htmlArg contained itemprop list sandbox subject spellcheck
+syn keyword htmlArg contained novalidate seamless pattern formtarget
+syn keyword htmlArg contained formaction formenctype formmethod
+syn keyword htmlArg contained sizes scoped async reversed sandbox srcdoc
+syn keyword htmlArg contained hidden role
+syn match htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
+syn match htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+"Plugin 'L9'
+" Git plugin not hosted on GitHub
+Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+"Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+"Plugin 'user/L9', {'name': 'newL9'}
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+ Plugin 'othree/html5.vim'
+
+let g:user_emmet_mode = 'iv'
+let g:user_emmet_leader_key = '<C-Y>'
+let g:use_emmet_complete_tag = 1
+let g:user_emmet_settings = {
+\ 'lang' : 'ja',
+\ 'html' : {
+\ 'filters' : 'html',
+\ },
+\ 'css' : {
+\ 'filters' : 'fc',
+\ },
+\ 'php' : {
+\ 'extends' : 'html',
+\ 'filters' : 'html',
+\ },
+\}
+augroup EmmitVim
+autocmd!
+autocmd FileType * let g:user_emmet_settings.indentation = ' '[:&tabstop]
 augroup END
