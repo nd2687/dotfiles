@@ -9,7 +9,7 @@ endif
 " ここにインストールしたいプラグインのリストを書く
  NeoBundle 'Shougo/unite.vim'
  NeoBundle 'Shougo/neomru.vim'
- NeoBundle 'h1mesuke/unite-outline'
+ NeoBundle 'Shougo/unite-outline'
  NeoBundle 'Shougo/neocomplcache.vim'
  NeoBundle 'scrooloose/nerdtree'
  NeoBundle 'szw/vim-tags'
@@ -27,7 +27,6 @@ endif
  NeoBundle 'kchmck/vim-coffee-script'
 
  NeoBundle 'gmarik/Vundle.vim'
-
 
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
