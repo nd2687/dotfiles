@@ -62,10 +62,3 @@ if [ $UID = "0" ]; then
   export LANG=C
   export LC_ALL=C
 fi
-
-# Hosts
-hosts=( \
-  hg.oiax.jp \
-)
-zstyle '*' hosts $hosts
-
