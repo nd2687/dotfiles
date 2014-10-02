@@ -369,3 +369,10 @@ augroup EmmitVim
 autocmd!
 autocmd FileType * let g:user_emmet_settings.indentation = ' '[:&tabstop]
 augroup END
+
+
+" 編集中の行に下線を引く
+au InsertLeave * setlocal nocursorline
+au InsertEnter * setlocal cursorline
+au InsertLeave * highlight StatusLine ctermfg=145 guifg=#c2bfa5 guibg=#000000
+au InsertEnter * highlight StatusLine ctermfg=12 guifg=#1E90FF
