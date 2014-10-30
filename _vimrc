@@ -121,6 +121,9 @@ set laststatus=2
 "ステータス行の表示内容を設定する
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
+" ステータス行に現在のgitブランチを表示する
+set statusline+=%{fugitive#statusline()}
+
 " ウィンドウ移動
 nnoremap <silent> wh <C-W>h
 nnoremap <silent> wj <C-W>j
