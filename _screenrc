@@ -45,3 +45,12 @@ screen -t server 2
 select 0
 
 setenv SSH_AUTH_SOCK $HOME/.ssh/ssh_auth_sock
+
+# when adding this setting
+# command line: $ defaults write com.googlecode.iterm2 AlternateMouseScroll -bool true
+# and
+# iTerm2: Prefecture > Profiles > Terminal checked "Save lines to scrollback when an app status bar is present"
+# and
+# add vimrc: set mouse=a
+defscrollback 5000
+termcapinfo xterm* ti@:te@
