@@ -16,6 +16,7 @@ endif
  NeoBundle 'tpope/vim-endwise'
  NeoBundle 'tpope/vim-rails'
  NeoBundle 'tpope/vim-surround'
+ NeoBundle 'airblade/vim-gitgutter'
 
  NeoBundle 'mattn/emmet-vim'
  "NeoBundle 'open-browser.vim'
