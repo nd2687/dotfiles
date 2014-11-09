@@ -415,3 +415,6 @@ endif
 
 " enabled scrollback
 set mouse=a
+
+" no highlight
+nnoremap <ESC><ESC> :noh<CR>
