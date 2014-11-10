@@ -6,7 +6,6 @@ if has('vim_starting')
   call neobundle#rc(expand('~/.vim/bundle'))
 endif
 
-" ここにインストールしたいプラグインのリストを書く
  NeoBundle 'Shougo/unite.vim'
  NeoBundle 'Shougo/neomru.vim'
  NeoBundle 'Shougo/unite-outline'
@@ -17,7 +16,6 @@ endif
  NeoBundle 'tpope/vim-rails'
  NeoBundle 'tpope/vim-surround'
  NeoBundle 'airblade/vim-gitgutter'
-
  NeoBundle 'mattn/emmet-vim'
  "NeoBundle 'open-browser.vim'
  NeoBundle 'mattn/webapi-vim'
@@ -26,7 +24,6 @@ endif
  NeoBundle 'othree/html5.vim'
  NeoBundle 'pangloss/vim-javascript'
  NeoBundle 'kchmck/vim-coffee-script'
-
  NeoBundle 'gmarik/Vundle.vim'
 
  NeoBundle 'Shougo/vimproc', {
@@ -220,7 +217,6 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 set list
 set listchars=trail:-,extends:»,precedes:«,nbsp:%
 
-
 "------------------------------------
 " unite.vim
 "------------------------------------
@@ -275,7 +271,7 @@ let g:user_zen_settings = {
 \ 'filters' : 'fc',
 \ },
 \}
- 
+
 "----------------------------------------
 " open-browsere
 "----------------------------------------
@@ -284,8 +280,7 @@ nmap <Leader>o <Plug>(openbrowser-open)
 vmap <Leader>o <Plug>(openbrowser-open)
 " ググる
 nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
- 
- 
+
 "----------------------------------------
 " vim-browsereload-mac
 "----------------------------------------
@@ -351,13 +346,13 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-"
+
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
+
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
  Plugin 'othree/html5.vim'
@@ -388,7 +383,6 @@ au InsertLeave * setlocal nocursorline
 au InsertEnter * setlocal cursorline
 au InsertLeave * highlight StatusLine ctermfg=145 guifg=#c2bfa5 guibg=#000000
 au InsertEnter * highlight StatusLine ctermfg=12 guifg=#1E90FF
-
 
 " insert modeで開始
 let g:unite_enable_start_insert = 1
