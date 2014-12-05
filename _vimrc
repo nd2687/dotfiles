@@ -27,6 +27,7 @@ endif
  NeoBundle 'pangloss/vim-javascript'
  NeoBundle 'kchmck/vim-coffee-script'
  NeoBundle 'gmarik/Vundle.vim'
+ NeoBundle 'tomtom/tcomment_vim'
 
  NeoBundle 'Shougo/vimproc', {
    \ 'build' : {
