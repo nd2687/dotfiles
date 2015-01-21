@@ -411,7 +411,7 @@ if executable('ag')
 endif
 
 " enabled scrollback
-set mouse=a
+" set mouse=a
 
 " no highlight
 nnoremap <ESC><ESC> :noh<CR>
