@@ -26,7 +26,7 @@ updateの際は、
 全ての開いているファイルに対し反映 `:bufdo e`  
 シンタックスハイライト反映 `:syntax on`  
   
-####bash
+####CL
 Escでvimモード?に入ってから`Ctrl+l`でコマンドラインを一番上にもってくる。  
 `Ctrl+m` 又は `Ctrl+j` で Enter  
 `Ctrl+h`で左一文字削除  
