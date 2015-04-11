@@ -1,7 +1,7 @@
-####vim環境設定  
+####Vim環境設定  
 まずNeoBundleInstallを使えるようにし(neobundle.vim をclone),  
-.vimrcにユーザー名/レポジトリ名でNeoBundle に指定して、  
-.vimrc上で:NeoBundleInstall で一括で指定したプラグインが.vim/bundle/下にcloneされる。  
+`.vimrc`にユーザー名/レポジトリ名でNeoBundle に指定して、  
+`.vimrc`上で`:NeoBundleInstall`で一括で指定したプラグインが`.vim/bundle/`下にcloneされる。  
 neomruとneocomplcacheはなぜかNeoBundleInstallできなかったので直接git clone  
   
 dotfile/以下に作成したvimrcなどから~/へシンボリックリンクを貼る。編集するのは
