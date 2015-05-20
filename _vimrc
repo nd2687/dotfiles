@@ -9,38 +9,38 @@ if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/bundle'))
   NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/neomru.vim'
+  NeoBundle 'Shougo/unite-outline'
+  NeoBundle 'Shougo/neocomplcache.vim'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'szw/vim-tags'
+  NeoBundle 'tpope/vim-endwise'
+  NeoBundle 'tpope/vim-rails'
+  NeoBundle 'tpope/vim-surround'
+  NeoBundle 'airblade/vim-gitgutter'
+  NeoBundle 'mattn/emmet-vim'
+  "NeoBundle 'open-browser.vim'
+  NeoBundle 'mattn/webapi-vim'
+  NeoBundle 'tell-k/vim-browsereload-mac'
+  NeoBundle 'hail2u/vim-css3-syntax'
+  NeoBundle 'othree/html5.vim'
+  NeoBundle 'pangloss/vim-javascript'
+  NeoBundle 'kchmck/vim-coffee-script'
+  NeoBundle 'gmarik/Vundle.vim'
+  NeoBundle 'tomtom/tcomment_vim'
+
+  NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+      \ 'windows' : 'make -f make_mingw32.mak',
+      \ 'cygwin' : 'make -f make_cygwin.mak',
+      \ 'mac' : 'make -f make_mac.mak',
+      \ 'unix' : 'make -f make_unix.mak',
+    \ },
+  \ }
+
   call neobundle#end()
 endif
-
- NeoBundle 'Shougo/unite.vim'
- NeoBundle 'Shougo/neomru.vim'
- NeoBundle 'Shougo/unite-outline'
- NeoBundle 'Shougo/neocomplcache.vim'
- NeoBundle 'scrooloose/nerdtree'
- NeoBundle 'szw/vim-tags'
- NeoBundle 'tpope/vim-endwise'
- NeoBundle 'tpope/vim-rails'
- NeoBundle 'tpope/vim-surround'
- NeoBundle 'airblade/vim-gitgutter'
- NeoBundle 'mattn/emmet-vim'
- "NeoBundle 'open-browser.vim'
- NeoBundle 'mattn/webapi-vim'
- NeoBundle 'tell-k/vim-browsereload-mac'
- NeoBundle 'hail2u/vim-css3-syntax'
- NeoBundle 'othree/html5.vim'
- NeoBundle 'pangloss/vim-javascript'
- NeoBundle 'kchmck/vim-coffee-script'
- NeoBundle 'gmarik/Vundle.vim'
- NeoBundle 'tomtom/tcomment_vim'
-
- NeoBundle 'Shougo/vimproc', {
-   \ 'build' : {
-     \ 'windows' : 'make -f make_mingw32.mak',
-     \ 'cygwin' : 'make -f make_cygwin.mak',
-     \ 'mac' : 'make -f make_mac.mak',
-     \ 'unix' : 'make -f make_unix.mak',
-   \ },
- \ }
 
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
