@@ -39,5 +39,6 @@ Escでvimモード?に入ってから`Ctrl+l`でコマンドラインを一番�
 ####NERDTree
 `R`でツリーのリフレッシュ  
   
-#####未実装
-`Ctrl+a`で行頭、`Ctrl+e`で行末
+####Unite.Vim
+`:Unite file buffer`で現在の場所から検索する  
+  
