@@ -10,11 +10,14 @@ git管理下のものである。
 ※シンボリックリンクを貼る際はファイル名指定だけだとうまくいかないので  
 相対パスか絶対パスで指定してあげる必要がある。  
   
-.vim/bundle/以下はneobundleだけ手動。  
-updateの際は、  
+updateの際は、
 * .vim/bundle/neobundle.vimをgit pull  
 * NeoBundleUpdate  
 * PluginUpdate  
+* .vim/bundle/以下で手動でcloneが必要なプラグイン  
+neobundle  
+vim-jsx  
+  
   
 ####Rails
 `Ctrl + s` 押した後に `-` で `<% %>`  
