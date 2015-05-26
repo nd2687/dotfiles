@@ -419,3 +419,5 @@ endif
 
 " no highlight
 nnoremap <ESC><ESC> :noh<CR>
+
+let g:jsx_ext_required = 0
