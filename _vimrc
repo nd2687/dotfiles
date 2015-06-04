@@ -20,7 +20,6 @@ if has('vim_starting')
   NeoBundle 'tpope/vim-surround'
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'mattn/emmet-vim'
-  "NeoBundle 'open-browser.vim'
   NeoBundle 'mattn/webapi-vim'
   NeoBundle 'tell-k/vim-browsereload-mac'
   NeoBundle 'hail2u/vim-css3-syntax'
@@ -278,15 +277,6 @@ let g:user_zen_settings = {
 \ 'filters' : 'fc',
 \ },
 \}
-
-"----------------------------------------
-" open-browsere
-"----------------------------------------
-" カーソル下のURLをブラウザで開く
-nmap <Leader>o <Plug>(openbrowser-open)
-vmap <Leader>o <Plug>(openbrowser-open)
-" ググる
-nnoremap <Leader>g :<C-u>OpenBrowserSearch<Space><C-r><C-w><Enter>
 
 "----------------------------------------
 " vim-browsereload-mac
