@@ -21,7 +21,6 @@ if has('vim_starting')
   NeoBundle 'airblade/vim-gitgutter'
   NeoBundle 'mattn/emmet-vim'
   NeoBundle 'mattn/webapi-vim'
-  NeoBundle 'tell-k/vim-browsereload-mac'
   NeoBundle 'hail2u/vim-css3-syntax'
   NeoBundle 'othree/html5.vim'
   NeoBundle 'pangloss/vim-javascript'
@@ -277,22 +276,6 @@ let g:user_zen_settings = {
 \ 'filters' : 'fc',
 \ },
 \}
-
-"----------------------------------------
-" vim-browsereload-mac
-"----------------------------------------
-" リロード後に戻ってくるアプリ 変更してください
-let g:returnApp = "iTerm"
-nmap <Space>bc :ChromeReloadStart<CR>
-nmap <Space>bC :ChromeReloadStop<CR>
-nmap <Space>bf :FirefoxReloadStart<CR>
-nmap <Space>bF :FirefoxReloadStop<CR>
-nmap <Space>bs :SafariReloadStart<CR>
-nmap <Space>bS :SafariReloadStop<CR>
-nmap <Space>bo :OperaReloadStart<CR>
-nmap <Space>bO :OperaReloadStop<CR>
-nmap <Space>ba :AllBrowserReloadStart<CR>
-nmap <Space>bA :AllBrowserReloadStop<CR>
 
 " HTML 5 tags
 syn keyword htmlTagName contained article aside audio bb canvas command
