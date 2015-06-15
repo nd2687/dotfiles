@@ -58,6 +58,7 @@ Escでvimモード?に入ってから`Ctrl+l`でコマンドラインを一番�
 ####NERDTree
 `r`でカレントディレクトリのリフレッシュ  
 `R`でルートディレクトリのリフレッシュ  
+`vim` + `ctrl+e` で起動  
   
 ####Unite.Vim
 `:Unite file buffer`で現在の場所から検索する  
