@@ -395,7 +395,4 @@ nnoremap <ESC><ESC> :noh<CR>
 
 let g:jsx_ext_required = 0
 
-" 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
-
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
