@@ -396,3 +396,6 @@ nnoremap <ESC><ESC> :noh<CR>
 let g:jsx_ext_required = 0
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" clipboard cooperation on MacOSX
+set clipboard+=unnamed
