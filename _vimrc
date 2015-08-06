@@ -397,3 +397,7 @@ let g:jsx_ext_required = 0
 
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
+nmap n nzz
+nmap N Nzz
+nmap * *zz
+nmap # #zz
