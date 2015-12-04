@@ -27,6 +27,7 @@ if has('vim_starting')
   NeoBundle 'kchmck/vim-coffee-script'
   NeoBundle 'gmarik/Vundle.vim'
   NeoBundle 'tomtom/tcomment_vim'
+  NeoBundle 'slim-template/vim-slim'
 
   NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
