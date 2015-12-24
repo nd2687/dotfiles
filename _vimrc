@@ -42,7 +42,7 @@ if has('vim_starting')
 endif
 
 " :
-au BufNewFile,BufRead *.php set tags+=$HOME/php.tags  
+au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 " vim-tags
 au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
 nnoremap <C-]> g<C-]>
@@ -402,3 +402,6 @@ nmap n nzz
 nmap N Nzz
 nmap * *zz
 nmap # #zz
+
+" カレント列をハイライト
+autocmd InsertEnter,InsertLeave * set cursorcolumn!
