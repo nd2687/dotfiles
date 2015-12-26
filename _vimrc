@@ -160,8 +160,6 @@ inoremap ( ()<LEFT>
 filetype on
 filetype indent on
 filetype plugin on
-" filetype plugin on
-" filetype indent on
 
 " 行末の空白文字を可視化
 highlight WhitespaceEOL cterm=underline ctermbg=red guibg=#FF0000
