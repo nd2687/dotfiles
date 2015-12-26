@@ -144,7 +144,7 @@ nnoremap <silent> td :<C-u>quit<CR>"
 nnoremap <silent> L :<C-u>tabnext<CR>
 nnoremap <silent> H :<C-u>tabprevious<CR>
 
-"vimを開く、vimを更新
+" vimを開く、vimを更新
 nnoremap <silent> g<Space> :<C-u>edit $HOME/.vimrc<CR>
 nnoremap <silent> ,<Space> :<C-u>source $HOME/.vimrc<CR>"
 
@@ -309,22 +309,22 @@ Plugin 'gmarik/Vundle.vim'
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
-"Plugin 'L9'
+" Plugin 'L9'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-"Plugin 'file:///home/gmarik/path/to/plugin'
+" Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " Avoid a name conflict with L9
-"Plugin 'user/L9', {'name': 'newL9'}
+" Plugin 'user/L9', {'name': 'newL9'}
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
-"filetype plugin on
+" filetype plugin on
 
 " Brief help
 " :PluginList       - lists configured plugins
