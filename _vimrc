@@ -339,6 +339,9 @@ filetype plugin indent on    " required
 " syntax highlighting for Vue components.
 Plugin 'posva/vim-vue'
 
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+
 let g:user_emmet_mode = 'iv'
 let g:user_emmet_leader_key = '<C-Y>'
 let g:use_emmet_complete_tag = 1
