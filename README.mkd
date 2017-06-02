@@ -14,7 +14,50 @@ Overview
                                \__/         ----   ---     ^      --- ©totoman
 ```
   
-####Vim環境設定  
+### Vim環境設定  
+
+### 2017.06 NeoBundle → Dein  
+150~180(ms) → 138.777(ms)
+
+### Dein
+```
+$ mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
+$ git clone https://github.com/Shougo/dein.vim.git \
+  ~/.vim/dein/repos/github.com/Shougo/dein.vim
+```
+
+vimrcに下記のように追記
+```
+if &compatible
+  set nocompatible
+endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+call dein#begin(expand('~/.vim/dein'))
+
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/neosnippet')
+
+" (中略)
+
+call dein#end()
+```
+
+install
+```
+:call dein#install()
+```
+
+確認
+```
+:Unite dein
+```
+
+### NeoBundle
 まずNeoBundleInstallを使えるようにし(neobundle.vim をclone),  
 `.vimrc`にユーザー名/レポジトリ名でNeoBundle に指定して、  
 `.vimrc`上で`:NeoBundleInstall`で一括で指定したプラグインが`.vim/bundle/`下にcloneされる。  
@@ -23,8 +66,7 @@ neomruとneocomplcacheはなぜかNeoBundleInstallできなかったので直接
 dotfile/以下に作成したvimrcなどから~/へシンボリックリンクを貼る。編集するのは
 git管理下のものである。  
   
-※シンボリックリンクを貼る際はファイル名指定だけだとうまくいかないので  
-相対パスか絶対パスで指定してあげる必要がある。  
+※ シンボリックリンクを貼る際はファイル名指定だけだとうまくいかないので、相対パスか絶対パスで指定してあげる必要がある。  
   
 updateの際は、
 * .vim/bundle/neobundle.vimをgit pull  
@@ -35,18 +77,19 @@ neobundle
 vim-jsx  
   
   
-####Rails
+## Tips
+### Rails
 `Ctrl + s` 押した後に `-` で `<% %>`  
 `Ctrl + s` 押した後に `=` で `<%= %>`  
 Visual mode で `S'`, `S"`, `S[`, `S(`, `S{`, `S<b>` でSの後のテキストで囲う。  
   
-####Git
+### Git
 ブランチを切り替えたとき、  
 現在いるファイルのみバージョン反映 `:e`  
 全ての開いているファイルに対し反映 `:bufdo e`  
 シンタックスハイライト反映 `:syntax on`  
   
-####CL
+### CL
 Escでvimモード?に入ってから`Ctrl+l`でコマンドラインを一番上にもってくる。  
 `Ctrl+m` 又は `Ctrl+j` で Enter  
 `Ctrl+h`で左一文字削除  
@@ -55,15 +98,15 @@ Escでvimモード?に入ってから`Ctrl+l`でコマンドラインを一番�
 `Ctrl+r`で過去のコマンドを検索。もう一度同コマンドで遡る。  
 `Ctrl+s`で最近のコマンドを検索。  
   
-####NERDTree
+### NERDTree
 `r`でカレントディレクトリのリフレッシュ  
 `R`でルートディレクトリのリフレッシュ  
 `vim` + `ctrl+e` で起動  
   
-####Unite.Vim
+### Unite.Vim
 `:Unite file buffer`で現在の場所から検索する  
   
-####vimperator
+### vimperator
 `dd`削除,`u`戻す  
 `f`リンクインデックス貼る,インデックスを入力でリンクとぶ  
 `h`,`l`でタブ移動  

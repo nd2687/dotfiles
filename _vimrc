@@ -6,43 +6,41 @@ if &compatible
   set nocompatible
 endif
 
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+call dein#begin(expand('~/.vim/dein'))
+
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/unite-outline')
+call dein#add('Shougo/neocomplcache.vim')
+call dein#add('Shougo/vimproc', {
+  \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin' : 'make -f make_cygwin.mak',
+    \ 'mac' : 'make -f make_mac.mak',
+    \ 'unix' : 'make -f make_unix.mak',
+  \ },
+\ })
+call dein#add('scrooloose/nerdtree')
+call dein#add('szw/vim-tags')
+call dein#add('tpope/vim-endwise')
+call dein#add('tpope/vim-rails')
+call dein#add('tpope/vim-surround')
+call dein#add('airblade/vim-gitgutter')
+call dein#add('mattn/emmet-vim')
+call dein#add('mattn/webapi-vim')
+call dein#add('hail2u/vim-css3-syntax')
+call dein#add('othree/html5.vim')
+call dein#add('pangloss/vim-javascript')
+call dein#add('kchmck/vim-coffee-script')
+call dein#add('gmarik/Vundle.vim')
+call dein#add('tomtom/tcomment_vim')
+call dein#add('slim-template/vim-slim')
+
+call dein#end()
+
 filetype off
-
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#begin(expand('~/.vim/bundle'))
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'Shougo/neomru.vim'
-  NeoBundle 'Shougo/unite-outline'
-  NeoBundle 'Shougo/neocomplcache.vim'
-  NeoBundle 'scrooloose/nerdtree'
-  NeoBundle 'szw/vim-tags'
-  NeoBundle 'tpope/vim-endwise'
-  NeoBundle 'tpope/vim-rails'
-  NeoBundle 'tpope/vim-surround'
-  NeoBundle 'airblade/vim-gitgutter'
-  NeoBundle 'mattn/emmet-vim'
-  NeoBundle 'mattn/webapi-vim'
-  NeoBundle 'hail2u/vim-css3-syntax'
-  NeoBundle 'othree/html5.vim'
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'kchmck/vim-coffee-script'
-  NeoBundle 'gmarik/Vundle.vim'
-  NeoBundle 'tomtom/tcomment_vim'
-  NeoBundle 'slim-template/vim-slim'
-
-  NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-      \ 'windows' : 'make -f make_mingw32.mak',
-      \ 'cygwin' : 'make -f make_cygwin.mak',
-      \ 'mac' : 'make -f make_mac.mak',
-      \ 'unix' : 'make -f make_unix.mak',
-    \ },
-  \ }
-
-  call neobundle#end()
-endif
 
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
