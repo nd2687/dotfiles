@@ -2,7 +2,10 @@ set encoding=utf-8
 
 scriptencoding utf-8
 
-set nocompatible
+if &compatible
+  set nocompatible
+endif
+
 filetype off
 
 if has('vim_starting')
@@ -46,9 +49,6 @@ au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 " vim-tags
 au BufNewFile,BufRead *.php let g:vim_tags_project_tags_command = "ctags --languages=php -f ~/php.tags `pwd` 2>/dev/null &"
 nnoremap <C-]> g<C-]>
-
-" (no)VimをなるべくVi互換にする
-set nocompatible
 
 " バックスペースキーの動作を決定する
 " 2:indent,eol,startと同じ
@@ -292,7 +292,6 @@ syn keyword htmlArg contained hidden role
 syn match htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
 syn match htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
 
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
