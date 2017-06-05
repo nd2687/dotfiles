@@ -410,3 +410,5 @@ autocmd InsertEnter,InsertLeave * set cursorcolumn!
 " Mojo epl templates
 let mojo_highlight_data = 1
 let mojo_disable_html = 1
+
+Plugin 'wakatime/vim-wakatime'
