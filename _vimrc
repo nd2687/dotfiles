@@ -412,3 +412,10 @@ let mojo_highlight_data = 1
 let mojo_disable_html = 1
 
 Plugin 'wakatime/vim-wakatime'
+
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
+
+autocmd InsertLeave * set nopaste
+
