@@ -1,5 +1,4 @@
 set encoding=utf-8
-
 scriptencoding utf-8
 
 if &compatible
@@ -105,6 +104,9 @@ set smarttab
 
 " (no)ファイルを上書きする前にバックアップファイルを作る
 set nobackup
+
+" □や○文字が崩れる問題を解決
+set ambiwidth=double
 
 " 強調表示(色付け)のON/OFF設定
 syntax on
