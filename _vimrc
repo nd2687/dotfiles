@@ -149,7 +149,7 @@ nnoremap <silent> g<Space> :<C-u>edit $HOME/.vimrc<CR>
 nnoremap <silent> ,<Space> :<C-u>source $HOME/.vimrc<CR>"
 
 nnoremap <silent>cl :<C-u>NERDTreeClose<CR>
-nnoremap <silent>mk :<C-u>NERDTree<CR>
+" nnoremap <silent>mk :<C-u>NERDTree<CR>
 
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>
@@ -427,8 +427,8 @@ let NERDTreeShowHidden = 1
 
 nnoremap <silent><C-e> :NERDTreeFocusToggle<CR>
 
-" デフォルトでツリーを表示させる
-let g:nerdtree_tabs_open_on_console_startup=1
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 " 他のバッファをすべて閉じた時にNERDTreeが開いていたらNERDTreeも一緒に閉じる。
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
