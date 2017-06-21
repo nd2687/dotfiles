@@ -197,3 +197,5 @@ PERL_LOCAL_LIB_ROOT="/Users/kawanotakashi/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LO
 PERL_MB_OPT="--install_base \"/Users/kawanotakashi/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/Users/kawanotakashi/perl5"; export PERL_MM_OPT;
 export PATH=$(brew --prefix)/bin:$PATH
+
+alias vi="vim"
