@@ -39,8 +39,6 @@ call dein#add('slim-template/vim-slim')
 
 call dein#end()
 
-filetype off
-
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 " vim-tags
@@ -49,7 +47,7 @@ nnoremap <C-]> g<C-]>
 
 " バックスペースキーの動作を決定する
 " 2:indent,eol,startと同じ
-set backspace=2
+" set backspace=2
 
 " 行番号を表示する
 set number
@@ -156,10 +154,6 @@ inoremap [ []<LEFT>
 inoremap " ""<LEFT>
 inoremap ' ''<LEFT>
 inoremap ( ()<LEFT>
-
-filetype on
-filetype indent on
-filetype plugin on
 
 " 行末の空白文字を可視化
 highlight WhitespaceEOL cterm=underline ctermbg=red guibg=#FF0000
@@ -292,8 +286,6 @@ syn keyword htmlArg contained hidden role
 syn match htmlArg "\<\(aria-[\-a-zA-Z0-9_]\+\)=" contained
 syn match htmlArg contained "\s*data-[-a-zA-Z0-9_]\+"
 
-filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -322,8 +314,6 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-" filetype plugin on
 
 " Brief help
 " :PluginList       - lists configured plugins
