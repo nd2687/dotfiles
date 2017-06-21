@@ -423,7 +423,7 @@ set showmode
 autocmd InsertLeave * set nopaste
 
 " 隠しファイルを表示する
-let NERDTreeShowHidden = 1
+" let NERDTreeShowHidden = 1
 
 nnoremap <silent><C-e> :NERDTreeFocusToggle<CR>
 
