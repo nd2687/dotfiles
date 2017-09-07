@@ -1,5 +1,7 @@
 set encoding=utf-8
 scriptencoding utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileformats=unix,dos,mac
 
 if &compatible
   set nocompatible
@@ -83,9 +85,6 @@ set smartindent
 
 " 保存しないで他のファイルを表示することが出来るようにする
 set hidden
-
-" カレントバッファ内のファイルの文字エンコーディングを設定する
-set fileencoding=utf-8
 
 " Insertモードで<Tab> を挿入するのに、適切な数の空白を使う
 set expandtab
