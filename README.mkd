@@ -3,7 +3,7 @@ My dotfiles
 
 Overview  
 
-## Usage
+# Usage
 
 ```
                           ---       ----    ----    ---          ---  
@@ -14,70 +14,49 @@ Overview
                                \__/         ----   ---     ^      --- ©totoman
 ```
   
-### Vim環境設定  
+## Vim環境設定  
 
-### 2017.06 NeoBundle → Dein  
-150~180(ms) → 138.777(ms)
+[導入方法]
 
-### Dein
+install dein
 ```
 $ mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
 $ git clone https://github.com/Shougo/dein.vim.git \
   ~/.vim/dein/repos/github.com/Shougo/dein.vim
 ```
 
-vimrcに下記のように追記
-```
-if &compatible
-  set nocompatible
-endif
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-
-call dein#begin(expand('~/.vim/dein'))
-
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neosnippet')
-
-" (中略)
-
-call dein#end()
-```
-
-install
+install plugin
 ```
 :call dein#install()
 ```
 
-確認
+check of installed plugin
 ```
 :Unite dein
 ```
 
-### NeoBundle
-まずNeoBundleInstallを使えるようにし(neobundle.vim をclone),  
-`.vimrc`にユーザー名/レポジトリ名でNeoBundle に指定して、  
-`.vimrc`上で`:NeoBundleInstall`で一括で指定したプラグインが`.vim/bundle/`下にcloneされる。  
-neomruとneocomplcacheはなぜかNeoBundleInstallできなかったので直接git clone  
-  
-dotfile/以下に作成したvimrcなどから~/へシンボリックリンクを貼る。編集するのは
-git管理下のものである。  
-  
-※ シンボリックリンクを貼る際はファイル名指定だけだとうまくいかないので、相対パスか絶対パスで指定してあげる必要がある。  
-  
-updateの際は、
-* .vim/bundle/neobundle.vimをgit pull  
-* NeoBundleUpdate  
-* PluginUpdate  
-* .vim/bundle/以下で手動でcloneが必要なプラグイン  
-neobundle  
-vim-jsx  
-  
-  
-## Tips
+install pathogen
+```
+mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+```
+
+install other plugin
+```
+:PluginInstall
+```
+
+[更新方法]
+* dein pull
+* :call dein#update()
+* pathogen pull
+* :PluginUpdate
+
+## UPDATE
+
+### 2017.06 NeoBundle → Dein  
+150~180(ms) → 138.777(ms)
+
+## Command List
 ### Rails
 `Ctrl + s` 押した後に `-` で `<% %>`  
 `Ctrl + s` 押した後に `=` で `<%= %>`  
@@ -113,7 +92,7 @@ stty stop undef
 ### Unite.Vim
 `:Unite file buffer`で現在の場所から検索する  
   
-### vimperator
+### vimperator(firefox)
 `dd`削除,`u`戻す  
 `f`リンクインデックス貼る,インデックスを入力でリンクとぶ  
 `h`,`l`でタブ移動  
