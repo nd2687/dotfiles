@@ -11,14 +11,7 @@ call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/neomru.vim')
 call dein#add('Shougo/unite-outline')
 call dein#add('Shougo/neocomplcache.vim')
-call dein#add('Shougo/vimproc', {
-  \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin' : 'make -f make_cygwin.mak',
-    \ 'mac' : 'make -f make_mac.mak',
-    \ 'unix' : 'make -f make_unix.mak',
-  \ },
-\ })
+call dein#add('Shougo/vimproc.vim', {'build' : 'make'})
 call dein#add('scrooloose/nerdtree')
 call dein#add('szw/vim-tags')
 call dein#add('tpope/vim-endwise')
