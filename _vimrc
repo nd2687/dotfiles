@@ -28,6 +28,7 @@ call dein#add('kchmck/vim-coffee-script')
 call dein#add('gmarik/Vundle.vim')
 call dein#add('tomtom/tcomment_vim')
 call dein#add('slim-template/vim-slim')
+call dein#add('jistr/vim-nerdtree-tabs')
 
 call dein#end()
 
@@ -377,7 +378,7 @@ nnoremap <ESC><ESC> :noh<CR>
 
 let g:jsx_ext_required = 0
 
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
+nnoremap <silent><C-e> :NERDTreeTabsToggle<CR>
 
 nmap n nzz
 nmap N Nzz
