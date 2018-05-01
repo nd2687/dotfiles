@@ -1,4 +1,5 @@
 set encoding=utf-8
+
 scriptencoding utf-8
 set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
 set fileformats=unix,dos,mac
@@ -423,3 +424,7 @@ let Grep_Default_Options = '-I'
 
 "バックアップファイルを無視する
 let Grep_Skip_Files = '*.bak *~'
+
+"バックスペース有効化
+set backspace=indent,eol,start
+
