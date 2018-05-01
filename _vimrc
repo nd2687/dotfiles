@@ -414,3 +414,12 @@ set clipboard=unnamed,autoselect
 
 " 100桁以上はハイライトしない(既定値3000)
 set synmaxcol=100
+
+"無視するディレクトリ
+let Grep_Skip_Dirs = '.svn .git'
+
+"バイナルファイルがgrepしない
+let Grep_Default_Options = '-I'
+
+"バックアップファイルを無視する
+let Grep_Skip_Files = '*.bak *~'
