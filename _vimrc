@@ -411,3 +411,6 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 set clipboard=unnamed,autoselect
+
+" 100桁以上はハイライトしない(既定値3000)
+set synmaxcol=100
