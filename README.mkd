@@ -64,6 +64,10 @@ install other plugin
 150~180(ms) → 138.777(ms)
 
 ## Command List
+
+### Vim
+再描画 `Ctrl + L`
+
 ### Rails
 `Ctrl + s` 押した後に `-` で `<% %>`  
 `Ctrl + s` 押した後に `=` で `<%= %>`  
