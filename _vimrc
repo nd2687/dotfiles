@@ -414,7 +414,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 set clipboard=unnamed,autoselect
 
 " 100桁以上はハイライトしない(既定値3000)
-set synmaxcol=100
+set synmaxcol=200
 
 "無視するディレクトリ
 let Grep_Skip_Dirs = '.svn .git'
