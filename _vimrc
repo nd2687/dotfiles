@@ -428,3 +428,8 @@ let Grep_Skip_Files = '*.bak *~'
 "バックスペース有効化
 set backspace=indent,eol,start
 
+"cd ~/.vim/bundle
+"git clone https://github.com/hashivim/vim-terraform.git
+let g:terraform_align=1
+let g:terraform_fold_sections=1
+let g:terraform_remap_spacebar=1
