@@ -123,9 +123,6 @@ export VTE_CJK_WIDTH=wide
 #disable C-s on bash
 stty stop undef
 
-#set vi mode
-set -o vi
-
 ###  Git  ###
 export GIT_PS1_SHOWDIRTYSTATE=1
 
