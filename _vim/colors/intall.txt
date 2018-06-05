@@ -1,0 +1,2 @@
+git clone https://github.com/tomasr/molokai
+cp -r molokai/colors ~/.vim/colors/

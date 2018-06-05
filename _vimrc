@@ -33,6 +33,10 @@ call dein#add('jistr/vim-nerdtree-tabs')
 
 call dein#end()
 
+" set colorscheme molokai
+colorscheme molokai
+let g:rehash256 = 1
+
 " :
 au BufNewFile,BufRead *.php set tags+=$HOME/php.tags
 " vim-tags
@@ -433,3 +437,4 @@ set backspace=indent,eol,start
 let g:terraform_align=1
 let g:terraform_fold_sections=1
 let g:terraform_remap_spacebar=1
+
