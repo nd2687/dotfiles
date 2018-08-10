@@ -1,7 +1,7 @@
 set encoding=utf-8
 
 scriptencoding utf-8
-set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+set fileencodings=utf-8
 set fileformats=unix,dos,mac
 
 set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
