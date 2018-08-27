@@ -110,3 +110,12 @@ stty stop undef
 `H`,`L`で戻る進む  
 `/`で検索  
 `Shift` + `esc` で一時的無効化/解除  
+
+### tmux
+```
+bind = Ctrl+a
+bind s セッション選択
+bind e ペイン同期
+bind E ペイン同期解除
+bind z ペイン最大化且つ同期一時的解除
+```
