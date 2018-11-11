@@ -33,7 +33,6 @@ call dein#add('jistr/vim-nerdtree-tabs')
 
 call dein#end()
 
-" set colorscheme molokai
 colorscheme molokai
 let g:rehash256 = 1
 
