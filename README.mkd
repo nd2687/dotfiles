@@ -18,38 +18,45 @@ Overview
 
 [導入方法]
 
-install dein
+Install dein
 ```
 $ mkdir -p ~/.vim/dein/repos/github.com/Shougo/dein.vim
 $ git clone https://github.com/Shougo/dein.vim.git \
   ~/.vim/dein/repos/github.com/Shougo/dein.vim
 ```
 
-install plugin
+Install plugin
 ```
 :call dein#install()
 ```
 
-check of installed plugin
+Check of installed plugin
 ```
 :Unite dein
 ```
 
-install pathogen
+Install pathogen
 ```
 $ mkdir -p ~/.vim/autoload ~/.vim/bundle && curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 ```
 
-install vimproc(deinでインストールできなかったのでpathogenで)
+Install vimproc(deinでインストールできなかったのでpathogenで)
 ```
 $ git clone https://github.com/Shougo/vimproc.vim.git ~/.vim/bundle/vimproc.vim
 $ cd ~/.vim/bundle/vimproc.vim
 $ make
 ```
 
-install other plugin
+Install other plugin
 ```
 :PluginInstall
+```
+
+Set colorscheme
+```
+$ mkdir ~/.vim/colors
+$ git clone https://github.com/tomasr/molokai
+$ mv molokai/colors/molokai.vim ~/.vim/colors/
 ```
 
 [更新方法]
