@@ -56,7 +56,7 @@ Set colorscheme
 ```
 $ mkdir ~/.vim/colors
 $ git clone https://github.com/tomasr/molokai
-$ mv molokai/colors/molokai.vim ~/.vim/colors/
+$ cp molokai/colors/molokai.vim ~/.vim/colors/
 ```
 
 [更新方法]
