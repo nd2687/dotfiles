@@ -9,32 +9,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 
-##
-# Your previous /Users/totoman/.bash_profile file was backed up as /Users/totoman/.bash_profile.macports-saved_2013-09-22_at_14:25:41
-##
-
-# MacPorts Installer addition on 2013-09-22_at_14:25:41: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-##
-# Your previous /Users/totoman/.bash_profile file was backed up as /Users/totoman/.bash_profile.macports-saved_2013-09-22_at_14:48:12
-##
-
-# MacPorts Installer addition on 2013-09-22_at_14:48:12: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-##
-# Your previous /Users/totoman/.bash_profile file was backed up as /Users/totoman/.bash_profile.macports-saved_2013-09-22_at_14:50:49
-##
-
-# MacPorts Installer addition on 2013-09-22_at_14:50:49: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
 # ファイルの末尾に下記を追加する
 PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH
