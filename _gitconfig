@@ -1,6 +1,6 @@
 [user]
-    name = **
-    email = **
+    name = Takashi-Kawano
+    email = kawano_takashi@griphone.co.jp
 [core]
     # excludesfile = /Users/kawanotakashi/.gitignore
     editor = /usr/local/bin/vim
@@ -17,3 +17,5 @@
         # 行ごとの差分じゃなくて，単語レベルでの差分を色付きで表示する
     difff = diff --word-diff
     ch = checkout
+[http]
+	cookiefile = /Users/s04629/.gitcookies
