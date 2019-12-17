@@ -203,3 +203,6 @@ export PATH=$(brew --prefix)/bin:$PATH
 alias vi="vim"
 export PATH=$PATH:"~/.composer/vendor/bin/"
 source ~/.git-completion.bash
+
+### Kuberentes
+alias k=kubectl
