@@ -75,6 +75,11 @@ $ cp molokai/colors/molokai.vim ~/.vim/colors/
 ### Vim
 再描画 `Ctrl + L`
 
+
+#### markdown-preview
+`:MarkdownPreview`
+
+
 ### Rails
 `Ctrl + s` 押した後に `-` で `<% %>`  
 `Ctrl + s` 押した後に `=` で `<%= %>`  
