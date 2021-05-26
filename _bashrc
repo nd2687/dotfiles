@@ -214,3 +214,7 @@ function _update_ps1() {
 if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
+
+# iTerm2のタブ表示
+export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
+
