@@ -117,8 +117,24 @@ bind E ペイン同期解除
 bind z ペイン最大化且つ同期一時的解除
 ```
 
-### プロンプトの三角のフォント設定方法
+### プロンプトの設定方法
 
-- https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60
+#### シェルの変更
+
+```
+現在しようしているシェルの確認
+$ echo $SHELL
+
+bashに変更
+$ chsh -s /bin/bash
+```
+
+#### フォントの変更
+
+以下のフォントを `~/Library/Fonts/` に配置し、ターミナルのPreference>Profiles>Text>Fontで「Menlo for Powerline」を選択する。
+
 - https://github.com/abertsch/Menlo-for-Powerline/blob/master/Menlo%20for%20Powerline.ttf
-- https://www.too.com/support/faq/font/23473.html
+
+#### 全体的な流れ
+
+https://qiita.com/hmmrjn/items/60d2a64c9e5bf7c0fe60#%E3%82%88%E3%81%8F%E8%A6%8B%E3%82%8B%E3%81%82%E3%81%AE%E8%A1%A8%E7%A4%BA--%EF%B8%8E--%E3%82%92%E5%86%8D%E7%8F%BE%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95
