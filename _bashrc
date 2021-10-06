@@ -215,3 +215,4 @@ fi
 # iTerm2のタブ表示
 export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 
+source ~/.git-completion.bash
