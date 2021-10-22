@@ -112,10 +112,6 @@ set listchars=tab:>-
 " カーソルの上または下に表示する最小限の行数
 set scrolloff=5
 
-" ステータスラインを表示するウィンドウを設定する
-" 2:常にステータスラインを表示する
-set laststatus=2
-
 "ステータス行の表示内容を設定する
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 
