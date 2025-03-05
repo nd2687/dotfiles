@@ -550,3 +550,4 @@ let g:mkdp_page_title = '「${name}」'
 "
 " markdown-preview -end-
 "
+set clipboard+=unnamed
