@@ -1,218 +1,141 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+#!/bin/bash
+# ~/.bashrc - Bash 設定ファイル（非ログインシェル用）
 
-# If not running interactively, don't do anything
+#==============================================================================
+# 基本設定
+#==============================================================================
+
+# 非対話モードでは何もしない
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
-export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
-# ... or force ignoredups and ignorespace
+# ターミナルの種類を明示的に指定（256色対応）
+export TERM=xterm-256color
+
+# ロケール設定（日本語UTF-8）
+export LANG=ja_JP.UTF-8
+
+# East Asian Ambiguous 文字幅問題への対処
+export VTE_CJK_WIDTH=wide
+
+#==============================================================================
+# ヒストリ設定
+#==============================================================================
+
+# ヒストリの重複行と先頭スペース行を無視
 export HISTCONTROL=ignoreboth
 
-# append to the history file, don't overwrite it
-shopt -s histappend
+# ヒストリの最大保存数
+export HISTSIZE=9999
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# ヒストリの共有機能（複数ターミナル間で履歴を共有）
+function share_history {
+    history -a  # .bash_historyに前回コマンドを1行追記
+    history -c  # 端末ローカルの履歴を一旦消去
+    history -r  # .bash_historyから履歴を読み込み直す
+}
+PROMPT_COMMAND='share_history'
 
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# ヒストリ追記モードをOFF（share_history関数で管理するため）
+shopt -u histappend
+
+#==============================================================================
+# Shell オプション
+#==============================================================================
+
+# ウィンドウサイズの変更を自動検出
 shopt -s checkwinsize
 
-# make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
+# Ctrl+S によるターミナル停止を無効化（ターミナルが利用可能な場合のみ）
+if [ -t 0 ]; then
+    stty stop undef
 fi
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
-
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-#if [ -f ~/.bash_aliases ]; then
-#    . ~/.bash_aliases
-#fi
-
-# enable color support of ls and also add handy aliases
-#
-#if [ -x /usr/bin/dircolors ]; then
-#    eval "`dircolors -b`"
-#    alias ls='ls --color=auto'
-#    #alias dir='dir --color=auto'
-#    #alias vdir='vdir --color=auto'
-#
-#    alias grep='grep --color=auto'
-#    #alias fgrep='fgrep --color=auto'
-#    #alias egrep='egrep --color=auto'
-#fi
-#
-# alias ls
-export LSCOLORS=gxfxcxdxbxegedabagacad
-alias ls='ls -G'
-
-###############################################################
-#  Customize
-###############################################################
-
-# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
-
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-fi
-
-#alias cd='pushd >/dev/null'
-
-#alias cd='. ~/bin/cd.sh'
-#alias p='popd > /dev/null'
-
-#screenの自動実行
-#if [ $SHLVL = '1' ]; then
-#  screen -U -xR -S topenpe
-#fi
-
-#ヒストリの共有
-function share_history {  # 以下の内容を関数として定義
-history -a  # .bash_historyに前回コマンドを1行追記
-history -c  # 端末ローカルの履歴を一旦消去
-history -r  # .bash_historyから履歴を読み込み直す
-}
-
-PROMPT_COMMAND='share_history'  # 上記関数をプロンプト毎に自動実施
-shopt -u histappend   # .bash_history追記モードは不要なのでOFFに
-export HISTSIZE=9999  # 履歴のMAX保存数を指定
-
-export LANG=ja_JP.UTF-8
-#export LC_MESSAGES=en_US.UTF-8
-#export VTE_CJK_WIDTH=wide # East Asian ambiguous problem
-export VTE_CJK_WIDTH=wide
-#export VTE_BACKEND=pango # East Asian ambigious problem
-
-#export TERM=xterm-color
-
-#disable C-s on bash
-stty stop undef
-
-###  Git  ###
-export GIT_PS1_SHOWDIRTYSTATE=1
-
-#directory-completion with tail-slash
+# ディレクトリ補完時に末尾スラッシュを付ける
 set mark-directories on
 
-#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+#==============================================================================
+# プロンプト設定
+#==============================================================================
 
-#
-# プロンプト
-#
-if [ "$color_prompt" = yes ]; then
-if [ -f $BASH_COMPLETION_DIR/git ]; then
-  # Gitのブランチ名を表示
-  #export PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
-  #debian_chrootが効かない？ために無着色状態になっていたので削除
-  export PS1='\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
-  #export PS1='\[\033[01;34m\]\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
-else
-  #export PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
-  #同上
-  #export PS1='\u@\h:\w\[\033[33m\]$(__git_ps1)\[\033[00m\]\$ '
-  #export PS1='\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-  #export PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
-  export PS1='\[\e[30;47m\] \t \[\e[37;46m\]\[\e[30m\] \w \[\e[36;49m\]\[\e[0m\] '
-fi
-else
-  #export PS1='\[\033[01;32m\]\u@\h\[\033[01;33m\] \w \n\[\033[01;34m\]\$\[\033[00m\] '
-  export PS1='\[\033[01;34m\]\w \n\[\033[01;34m\]\$\[\033[00m\] '
-fi
-
-unset color_prompt force_color_prompt
-
-export PATH=${PATH}:~/android/android-sdk-linux/tools:~/android/android-sdk-linux/platform-tools
-
-export LANG=ja_JP.UTF-8
-export LC_ALL=en_US.UTF-8
-function cdls() {
-      # cdがaliasでループするので\をつける
-          if [ -z "$1" ];then
-              \cd
-          else
-              \cd "$1"
-          fi
-          ls
+# Git ブランチ名を取得する関数
+function get_git_branch {
+    local branch=$(git branch --show-current 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo " ($branch)"
+    fi
 }
-alias cd=cdls
-alias javac='javac -J-Dfile.encoding=UTF8'
-alias java='java -Dfile.encoding=UTF8'
-alias ctags="`brew --prefix`/bin/ctags"
-export PATH="$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-agent="$HOME/.ssh/ssh_auth_sock"
-if [ -S "$agent" ]; then
-  export SSH_AUTH_SOCK=$agent
-elif [ ! -S "$SSH_AUTH_SOCK" ]; then
-  export SSH_AUTH_SOCK=$agent
-elif [ ! -L "$SSH_AUTH_SOCK" ]; then
-  ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
-fi
+# モダンなプロンプト表示（シアン色ディレクトリ、黄色Gitブランチ、緑色矢印）
+# 例: ~/project (main) >
+PS1='\[\e[36m\]\w\[\e[0m\]\[\e[33m\]$(get_git_branch)\[\e[0m\] \[\e[32m\]>\[\e[0m\] '
 
-source ~/.git-completion.bash
+# Git のプロンプト表示で変更状態を表示
+export GIT_PS1_SHOWDIRTYSTATE=1
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+#==============================================================================
+# カラー設定
+#==============================================================================
 
-PATH="~/perl5/bin${PATH+:}${PATH}"; export PATH;
-PERL5LIB="~/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="~/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"~/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=~/perl5"; export PERL_MM_OPT;
-export PATH=$(brew --prefix)/bin:$PATH
+# ls コマンドのカラー設定（BSD/macOS形式）
+export LSCOLORS=gxfxcxdxbxegedabagacad
 
+#==============================================================================
+# エイリアス
+#==============================================================================
+
+# ls コマンド（カラー表示）
+alias ls='ls -G'
+alias ll='ls -l'           # 詳細表示
+alias la='ls -A'           # 隠しファイルも表示
+alias l='ls -CF'           # カラム表示
+
+# vi を vim にリダイレクト
 alias vi="vim"
-export PATH=$PATH:"~/.composer/vendor/bin/"
-source ~/.git-completion.bash
 
-### Kuberentes
+# Kubernetes のショートカット
 alias k=kubectl
 
-function _update_ps1() {
-    PS1="$(powerline-shell $?)\n$ "
-}
+#==============================================================================
+# SSH Agent 設定
+#==============================================================================
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+# SSH Agent のソケットを固定パスにリンク（再接続時の利便性向上）
+agent="$HOME/.ssh/ssh_auth_sock"
+if [ -S "$agent" ]; then
+    export SSH_AUTH_SOCK=$agent
+elif [ ! -S "$SSH_AUTH_SOCK" ]; then
+    export SSH_AUTH_SOCK=$agent
+elif [ ! -L "$SSH_AUTH_SOCK" ]; then
+    ln -snf "$SSH_AUTH_SOCK" $agent && export SSH_AUTH_SOCK=$agent
+fi
+
+#==============================================================================
+# PATH 設定
+#==============================================================================
+
+# Homebrew のバイナリパス
+export PATH=$(brew --prefix)/bin:$PATH
+
+# Google Cloud SDK
+export PATH="/Users/takashikawano/Tools/google-cloud-sdk/bin:$PATH"
+
+#==============================================================================
+# 補完設定
+#==============================================================================
+
+# Git コマンドの補完機能
+if [ -f ~/.git-completion.bash ]; then
+    source ~/.git-completion.bash
+fi
+
+# OpenShift CLI (oc) の補完機能
+if command -v oc &> /dev/null; then
+    source <(oc completion bash)
 fi
 
 # iTerm2のタブ表示
 export PROMPT_COMMAND='echo -ne "\033];${PWD##*/}\007"'
 
-source ~/.git-completion.bash
+#==============================================================================
+# 終了
+#==============================================================================

@@ -1,3 +1,6 @@
+# macOS の zsh 推奨メッセージを非表示にする
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
 # Basic biniary path
 export PATH=$PATH:/opt/local/bin:/opt/local/sbin
 export PATH=$PATH:/usr/local/bin:/usr/local/sbin
